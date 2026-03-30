@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - API_BASE=http://backend:1337/api
+
+  backend:
+    build: ./backend
+    ports:
+      - "1337:1337"
