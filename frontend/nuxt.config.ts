@@ -13,7 +13,7 @@ export default defineNuxtConfig({
 
     image: {
         strapi: {
-            baseURL: 'http://localhost:1337/'
+            baseURL: '/'
         }
     },
 

@@ -1,14 +1,44 @@
-version: "3"
-
 services:
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - frontend
+      - backend
+
   frontend:
     build: ./frontend
-    ports:
-      - "3000:3000"
-    environment:
-      - API_BASE=http://backend:1337/api
+    container_name: frontend
+    restart: always
+    expose:
+      - "3000"
 
   backend:
     build: ./backend
-    ports:
-      - "1337:1337"
+    container_name: backend
+    restart: always
+    expose:
+      - "1337"
+    volumes:
+      - ./backend/public/uploads:/app/public/uploads
+      - ./backend/.tmp:/app/.tmp
+    environment:
+      - NODE_ENV=production
+      - HOST=0.0.0.0
+      - PORT=1337
+      - APP_KEYS=key1,key2,key3
+      - API_TOKEN_SALT=salt
+      - ADMIN_JWT_SECRET=secret
+      - JWT_SECRET=secret
+
+volumes:
+  caddy_data:
+  caddy_config:

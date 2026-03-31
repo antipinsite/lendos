@@ -1,0 +1,20 @@
+denantipin.ru {
+
+  encode gzip
+
+  # uploads → убираем /api
+  route /api/uploads/* {
+    uri strip_prefix /api
+    reverse_proxy backend:1337
+  }
+
+  # API → НЕ трогаем путь
+  route /api/* {
+    reverse_proxy backend:1337
+  }
+
+  # frontend
+  route {
+    reverse_proxy frontend:3000
+  }
+}

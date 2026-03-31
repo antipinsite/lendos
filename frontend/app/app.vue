@@ -6,8 +6,10 @@ const dayjs = useDayjs()
 
 import TitleSvg from "~/assets/svg/titleSvg.vue";
 
-const events = ref([])
-const videos = ref([])
+type TData = {data: any[]}
+
+const events = ref<TData>({data: []})
+const videos = ref<TData>({data: []})
 
 dayjs.locale('ru')
 
@@ -18,15 +20,11 @@ function getFormatDate (date: Date) {
   }
 }
 
-onMounted(async () => {
-  const config = useRuntimeConfig()
-  events.value = await $fetch('/afishas?populate=*', {
-    baseURL: import.meta.client ? 'http://localhost:1337/api' : config.public.apiBase
-  })
-
-  videos.value = await $fetch('/videos?populate=*', {
-    baseURL: import.meta.client ? 'http://localhost:1337/api' : config.public.apiBase
-  })
+onMounted( async () => {
+  const { data: eventsData } = await useFetch('/api/afishas?populate=*')
+  events.value = eventsData?.value as TData || []
+  const { data: videosData } = await useFetch('/api/videos?populate=*')
+  videos.value = videosData?.value as TData || []
 })
 </script>
 
@@ -61,11 +59,10 @@ onMounted(async () => {
     <div class="mt-[120px] max-lg:mt-[40px] lg:h-screen">
       <h2 class="font-tarbarsam leading-[140%] max-lg:text-[60px] text-[170px] text-center">Видео</h2>
       <div class="w-full place-items-center gap-y-[30px] grid max-lg:grid-cols-1 grid-cols-2">
-        <NuxtImg
+        <img
             v-for="video in videos?.data"
             class="max-w-[90%] cursor-pointer"
-            provider="strapi"
-            :src="video?.preview?.url"
+            :src="'/api/uploads' + video?.preview?.url.replace('/uploads', '')"
             alt="Description"
             @click="navigateTo(video?.link, { open: { target: '_blank' } })"
         />
