@@ -15,14 +15,16 @@ services:
       - backend
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
     container_name: frontend
     restart: always
     expose:
       - "3000"
 
   backend:
-    build: ./backend
+    build:
+      context: ./backend
     container_name: backend
     restart: always
     expose:
@@ -30,14 +32,8 @@ services:
     volumes:
       - ./backend/public/uploads:/app/public/uploads
       - ./backend/.tmp:/app/.tmp
-    environment:
-      - NODE_ENV=production
-      - HOST=0.0.0.0
-      - PORT=1337
-      - APP_KEYS=key1,key2,key3
-      - API_TOKEN_SALT=salt
-      - ADMIN_JWT_SECRET=secret
-      - JWT_SECRET=secret
+      - ./backend/.cache:/app/.cache
+      - ./backend/database:/app/database   # ← ВАЖНО
 
 volumes:
   caddy_data:
