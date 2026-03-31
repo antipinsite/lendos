@@ -7,7 +7,6 @@ RUN npm install
 
 COPY . .
 
-# 👉 ВАЖНО: билд Strapi
 RUN npm run build
 
 EXPOSE 1337
