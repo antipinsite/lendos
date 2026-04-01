@@ -14,7 +14,7 @@ services:
     restart: always
 
   backend:
-    image: artist-backend-local
+    image: antipinsite/artist-backend:latest
     volumes:
       - ./backend/src:/app/src
       - ./backend/config:/app/config
