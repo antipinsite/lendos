@@ -1,8 +1,6 @@
 services:
   caddy:
     image: caddy:latest
-    container_name: caddy
-    restart: always
     ports:
       - "80:80"
       - "443:443"
@@ -10,30 +8,28 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config:/config
-    depends_on:
-      - frontend
-      - backend
 
   frontend:
-    build:
-      context: ./frontend
-    container_name: frontend
+    image: antipinsite/artist-frontend:latest
     restart: always
-    expose:
-      - "3000"
 
   backend:
-    build:
-      context: ./backend
-    container_name: backend
-    restart: always
-    expose:
-      - "1337"
+    image: artist-backend-local
     volumes:
-      - ./backend/public/uploads:/app/public/uploads
-      - ./backend/.tmp:/app/.tmp
-      - ./backend/.cache:/app/.cache
-      - ./backend/database:/app/database   # ← ВАЖНО
+      - ./backend/src:/app/src
+      - ./backend/config:/app/config
+      - ./backend/public:/app/public
+      - ./backend/database:/app/database
+    environment:
+      - NODE_ENV=development
+      - DATABASE_FILENAME=database/data.db
+      - HOST=0.0.0.0
+      - PORT=1337
+      - APP_KEYS=key1,key2,key3
+      - API_TOKEN_SALT=salt
+      - ADMIN_JWT_SECRET=secret
+      - JWT_SECRET=secret
+      - PUBLIC_URL=https://localhost
 
 volumes:
   caddy_data:

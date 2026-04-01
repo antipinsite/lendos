@@ -62,7 +62,7 @@ onMounted( async () => {
         <img
             v-for="video in videos?.data"
             class="max-w-[90%] cursor-pointer"
-            :src="'/api/uploads' + video?.preview?.url.replace('/uploads', '')"
+            :src="video?.preview?.url"
             alt="Description"
             @click="navigateTo(video?.link, { open: { target: '_blank' } })"
         />

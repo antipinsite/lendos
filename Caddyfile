@@ -1,21 +1,21 @@
-denantipin.ru {
+localhost {
 
   encode gzip
 
-  route /admin* {
-    reverse_proxy backend:1337
+  # ВСЁ что связано со Strapi → backend
+  @backend {
+    path /admin* /api/* /uploads/* /content-manager/* /upload/* /i18n/* /users-permissions/*
   }
 
-  route /api/uploads/* {
-    uri strip_prefix /api
-    reverse_proxy backend:1337
+  handle @backend {
+    reverse_proxy backend:1337 {
+      header_up X-Forwarded-Proto {scheme}
+      header_up X-Forwarded-Host {host}
+    }
   }
 
-  route /api/* {
-    reverse_proxy backend:1337
-  }
-
-  route {
+  # всё остальное → frontend
+  handle {
     reverse_proxy frontend:3000
   }
 }
