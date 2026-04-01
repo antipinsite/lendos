@@ -4,7 +4,7 @@ denantipin.ru, www.denantipin.ru {
 
   # ВСЁ что связано со Strapi → backend
   @backend {
-    path /admin* /api/* /uploads/* /content-manager/* /upload/* /i18n/* /users-permissions/*
+    path /admin* /api* /upload* /uploads* /content-manager* /i18n* /users-permissions*
   }
 
   handle @backend {
