@@ -26,6 +26,10 @@ onMounted( async () => {
   const { data: videosData } = await useFetch('/api/videos?populate=*')
   videos.value = videosData?.value as TData || []
 })
+
+useHead({
+  title: 'Денис Антипин'
+})
 </script>
 
 <template>
