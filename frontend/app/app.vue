@@ -90,15 +90,15 @@ onMounted( async () => {
     <div class="mt-[120px] max-lg:mt-[40px] lg:h-screen">
         <h2 class="font-tarbarsam leading-[140%] max-lg:text-[45px] text-[170px] text-center">Социальные сети</h2>
       <div class="max-lg:mt-[20px] flex justify-between">
-        <a href="#" target="_blank" class="flex flex-col gap-[50px] text-center cursor-pointer">
+        <a href="https://t.me/kanapepasan" target="_blank" class="flex flex-col gap-[50px] text-center cursor-pointer">
           <img class="max-lg:w-[90%]" src="~/assets/images/telega.png" />
           <p class="font-tarbarsam text-[#FF70E0] max-lg:text-[16px] text-[40px] leading-[140%]">Telegram</p>
         </a>
-        <a href="#" target="_blank" class="flex flex-col gap-[50px] text-center cursor-pointer">
+        <a href="https://www.instagram.com/denzzl?igsh=MTVwamZ1dnEyb3ZzaA==" target="_blank" class="flex flex-col gap-[50px] text-center cursor-pointer">
           <img class="max-lg:w-[90%]"  src="~/assets/images/insta.png" />
           <p class="font-tarbarsam text-[#FF70E0] max-lg:text-[16px] text-[40px] leading-[140%]">Instagram*</p>
         </a>
-        <a href="#" target="_blank" class="flex flex-col gap-[50px] text-center cursor-pointer">
+        <a href="https://youtube.com/@denzzl?si=Ng5mmyQrW1qsn7oN" target="_blank" class="flex flex-col gap-[50px] text-center cursor-pointer">
           <img class="max-lg:w-[90%]"  src="~/assets/images/youtube.png" />
           <p class="font-tarbarsam text-[#FF70E0] max-lg:text-[16px] text-[40px] leading-[140%]">Youtube</p>
         </a>
