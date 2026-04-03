@@ -69,7 +69,7 @@ onMounted( async () => {
       </div>
     </div>
 
-    <div class="mt-[120px] max-lg:h-[500px] lg:h-screen relative">
+    <div class="mt-[120px] max-lg:h-[350px] lg:h-screen relative">
       <h2 class="font-tarbarsam leading-[140%] max-lg:text-[60px] text-[170px] text-center">Мерч</h2>
 
       <img class="max-lg:w-[50%] absolute z-2" src="~/assets/images/merch.png" />
