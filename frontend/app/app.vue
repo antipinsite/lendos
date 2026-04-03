@@ -69,27 +69,23 @@ onMounted( async () => {
       </div>
     </div>
 
-    <div class="mt-[120px] max-lg:h-[calc(100vh/2)] lg:h-screen relative">
+    <div class="mt-[120px] max-lg:h-[500px] lg:h-screen relative">
       <h2 class="font-tarbarsam leading-[140%] max-lg:text-[60px] text-[170px] text-center">Мерч</h2>
 
       <img class="max-lg:w-[50%] absolute z-2" src="~/assets/images/merch.png" />
 
       <div class="pt-[40px] z-5 relative flex flex-col ml-auto items-center text-center w-fit">
-        <p class="font-geist w-fit max-lg:text-[18px] text-[60px] leading-[95%]">Концептуальный вандализм</p>
+        <a href="https://www.instagram.com/true_conceptual_vandalism?igsh=MWowaHczeHV2a2J1Zg==" target="_blank" class="font-geist w-fit max-lg:text-[18px] text-[60px] leading-[95%]">Концептуальный вандализм</a>
         <p class="font-geist text-[50px] max-lg:text-[18px] leading-[140%]">x</p>
         <p class="text-[#FF70E0] font-tarbarsam w-fit max-lg:text-[27px] text-[90px] leading-[140%]">Денис Антипин</p>
       </div>
-
-      <a href="tel:+79772965884" class="z-5 absolute bottom-0 right-0 max-lg:text-[12px] max-lg:px-[10px] max-lg:py-[4px] px-[20px] py-[8px] leading-[140%] text-[30px] max-lg:border-[1px] border-[2px] whitespace-nowrap">
-        ПОКУПКА: +7 977 296 5884 Света
-      </a>
 
       <img class="max-lg:w-[25%] absolute right-0 bottom-[10%] z-2" src="~/assets/images/merch2.png" />
     </div>
 
     <div class="mt-[120px] max-lg:mt-[40px] lg:h-screen">
         <h2 class="font-tarbarsam leading-[140%] max-lg:text-[45px] text-[170px] text-center">Социальные сети</h2>
-      <div class="max-lg:mt-[20px] flex justify-between">
+      <div class="max-lg:mt-[20px] mb-[30px] flex justify-between">
         <a href="https://t.me/kanapepasan" target="_blank" class="flex flex-col gap-[50px] text-center cursor-pointer">
           <img class="max-lg:w-[90%]" src="~/assets/images/telega.png" />
           <p class="font-tarbarsam text-[#FF70E0] max-lg:text-[16px] text-[40px] leading-[140%]">Telegram</p>
@@ -104,7 +100,14 @@ onMounted( async () => {
         </a>
       </div>
 
-      <p class="font-geist text-center w-full max-lg:text-[8px] pt-[70px] pb-[24px]">*Meta признана экстремистской организацией и запрещена на территории РФ</p>
+
+      <div class="m-auto w-fit">
+        <a href="tel:+79670475055" class="m-auto z-5 max-lg:text-[12px] max-lg:px-[10px] max-lg:py-[4px] px-[20px] py-[8px] leading-[140%] text-[30px] max-lg:border-[1px] border-[2px] whitespace-nowrap">
+          БУКИНГ: +7 967 047 5055 Дарья
+        </a>
+      </div>
+
+      <p class="font-geist w-full max-lg:text-[8px] pt-[70px] pb-[24px]">*Meta признана экстремистской организацией и запрещена на территории РФ</p>
     </div>
   </main>
 </template>
